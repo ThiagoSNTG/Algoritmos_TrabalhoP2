@@ -3,22 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#17253a">
-  <title>Algoritmos de Ordenação</title>
+  <meta name="theme-color" content="#6d1d20">
+  <title>Algoritmos de Ordenação | Univassouras</title>
   <link rel="stylesheet" href="estilos.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-  <main class="pagina">
+  <div class="faixa-institucional">
+    <div class="faixa-conteudo">
+      <img class="logo-institucional logo-branca" src="logo_univassouras_branca.png"
+           alt="Univassouras" width="742" height="522">
+      <span class="identificacao">ATIVIDADE ACADÊMICA <span class="separador">/</span> ALGORITMOS</span>
+    </div>
+  </div>
+
+  <main class="pagina" id="inicio">
     <header class="cabecalho">
-      <p class="marca">ATIVIDADE DE PROGRAMAÇÃO</p>
-      <h1>Algoritmos de ordenação</h1>
-      <p>Selecione um dos nove métodos, execute o teste e confira o tempo e o resultado.</p>
+      <p class="marca"><span class="marcador"></span> LABORATÓRIO DE ORDENAÇÃO</p>
+      <h1>Algoritmos de <span>ordenação</span></h1>
+      <p>Explore os nove métodos, execute cada algoritmo e acompanhe o tempo e a conferência dos resultados.</p>
+      <div class="dados-atividade" aria-label="Parâmetros da atividade">
+        <span><strong>09</strong> métodos</span>
+        <span><strong>100.000</strong> elementos</span>
+        <span><strong>0 a 100.000</strong> valores possíveis</span>
+      </div>
     </header>
 
     <div class="grade">
       <section class="painel" aria-labelledby="configuracao">
-        <h2 id="configuracao">Configuração</h2>
+        <div class="titulo-painel"><span class="numero-painel">01</span><h2 id="configuracao">Configuração</h2></div>
         <label for="algoritmo">Algoritmo</label>
         <select id="algoritmo">
           <option value="0">01 · Bubble Sort</option>
@@ -34,7 +47,7 @@
 
         <label for="quantidade">Quantidade de elementos</label>
         <input id="quantidade" type="number" min="1" max="100000" step="1" value="100000" required>
-        <p class="ajuda">Padrão da atividade: <strong>100.000 números aleatórios</strong> de 0 a 1.000.000, com sequência fixa para cada teste.</p>
+        <p class="ajuda">Padrão da atividade: <strong>100.000 números aleatórios</strong> de 0 a 100.000, com sequência fixa para cada teste.</p>
 
         <p class="alerta" id="alerta">Atenção: esse método pode levar muito tempo com 100.000 elementos.</p>
 
@@ -47,7 +60,7 @@
       </section>
 
       <section class="painel resultado" aria-labelledby="titulo-resultado">
-        <div class="linha-titulo"><h2 id="titulo-resultado">Resultado</h2><span class="situacao" id="situacao">Aguardando</span></div>
+        <div class="linha-titulo"><div class="titulo-painel"><span class="numero-painel">02</span><h2 id="titulo-resultado">Resultado</h2></div><span class="situacao" id="situacao">Aguardando</span></div>
         <p class="descricao" id="descricao">Escolha um algoritmo e clique em executar.</p>
         <div class="numeros">
           <div><span>Tempo de execução</span><strong id="tempo">—</strong></div>
@@ -62,7 +75,14 @@
         <p class="nota">A ordenação acontece no navegador. Para executar os arquivos Python originais, utilize o <code>menu.py</code> no terminal ou no Codespaces.</p>
       </section>
     </div>
-    <footer>Projeto de algoritmos de ordenação · Python + versão web</footer>
+    <footer class="rodape">
+      <img class="logo-institucional logo-colorida" src="logo_univassouras_colorida.png"
+           alt="Univassouras" width="741" height="522">
+      <div>
+        <strong>Algoritmos de ordenação</strong>
+        <p>Atividade acadêmica · Python e versão web</p>
+      </div>
+    </footer>
   </main>
 </body>
 </html>

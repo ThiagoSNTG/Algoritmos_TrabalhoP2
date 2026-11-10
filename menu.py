@@ -52,7 +52,7 @@ while True:
 
     # A mesma semente deixa a comparação entre algoritmos mais justa.
     random.seed(42)
-    lista = [random.randint(0, 1_000_000) for _ in range(quantidade)]
+    lista = [random.randint(0, 100_000) for _ in range(quantidade)]
 
     print(f"\nExecutando {nome} com {quantidade} elementos...")
     inicio = time.perf_counter()

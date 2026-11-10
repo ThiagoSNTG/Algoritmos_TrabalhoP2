@@ -22,7 +22,7 @@ Para executar no computador ou no terminal do GitHub Codespaces, abra a pasta e 
 python menu.py
 ```
 
-Selecione um número de 1 a 9. Pressione Enter quando for perguntada a quantidade para usar os **100.000 elementos** da atividade. O programa gera números de 0 a 1.000.000 com semente aleatória fixa, mede o tempo e confere o resultado.
+Selecione um número de 1 a 9. Pressione Enter quando for perguntada a quantidade para usar os **100.000 elementos** da atividade. O programa gera números de 0 a 100.000 com semente aleatória fixa, mede o tempo e confere o resultado.
 
 ## Versão para GitHub Pages
 
@@ -38,6 +38,17 @@ Para publicar:
 6. Aguarde a publicação e abra o endereço exibido em Pages.
 
 O botão **Abrir código Python selecionado** permite consultar o arquivo de cada algoritmo.
+
+### Identidade visual
+
+A página usa os dois arquivos de logo oficiais fornecidos, sem alterar suas proporções:
+
+- `logo_univassouras_branca.png`: cabeçalho sobre bordô.
+- `logo_univassouras_colorida.png`: rodapé sobre fundo claro.
+
+A paleta segue o manual reduzido da Univassouras: bordô `#6D1D20` e cinza quente `#A59C97`. O CSS indica **Museo Sans**, fonte institucional, como primeira opção. Como os arquivos da fonte não foram fornecidos, o navegador usa uma alternativa sans-serif caso a família não esteja instalada.
+
+**Envie as duas imagens junto com os arquivos HTML, CSS e JavaScript para o mesmo diretório no GitHub.** Não renomeie os arquivos sem ajustar os caminhos no `index.html`.
 
 Se quiser executar o Python dentro do GitHub, use **Code → Codespaces → Create codespace on main**, abra o terminal e rode `python menu.py`.
 

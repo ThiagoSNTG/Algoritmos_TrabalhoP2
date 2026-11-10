@@ -11,7 +11,7 @@ self.onmessage = (evento) => {
   let semente = 42;
   const lista = Array.from({length: quantidade}, () => {
     semente = (Math.imul(1664525, semente) + 1013904223) >>> 0;
-    return Math.floor(semente / 4294967296 * 1000001);
+    return Math.floor(semente / 4294967296 * 100001);
   });
 
   try {

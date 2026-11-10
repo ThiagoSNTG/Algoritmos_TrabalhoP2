@@ -20,7 +20,7 @@ for (const [indice, ordenar] of algoritmos.entries()) {
   }
 }
 
-const grandes = Array.from({length: 100000}, () => Math.floor(Math.random() * 1000001));
+const grandes = Array.from({length: 100000}, () => Math.floor(Math.random() * 100001));
 const esperado = grandes.slice().sort((a, b) => a - b);
 for (const indice of [3, 4, 5, 6, 7, 8]) {
   assert.deepEqual(algoritmos[indice](grandes.slice()), esperado, `Teste 100.000: algoritmo ${indice + 1}`);
