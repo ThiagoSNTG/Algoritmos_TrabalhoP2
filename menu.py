@@ -64,7 +64,12 @@ while True:
     tempo = time.perf_counter() - inicio
 
     correto = resultado == sorted(lista)
+    print("\nRESULTADO DA EXECUÇÃO EM PYTHON")
+    print(f"Algoritmo: {nome}")
     print(f"Ordenação correta: {'Sim' if correto else 'Não'}")
-    print(f"Tempo: {tempo:.4f} segundos")
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    if tempo >= 60:
+        minutos, segundos = divmod(tempo, 60)
+        print(f"Duração: {int(minutos)} min e {segundos:.2f} s")
     print(f"Primeiros 10: {resultado[:10]}")
     print(f"Últimos 10: {resultado[-10:]}")

@@ -41,7 +41,7 @@ O botão **Abrir código Python selecionado** permite consultar o arquivo de cad
 
 O botão **Informações do algoritmo** abre uma janela de consulta para o método selecionado. O conteúdo segue os tópicos do roteiro acadêmico (execução passo a passo, complexidade, código, teste, vantagens, desvantagens e conclusão), sem nomes de participantes nem frases de passagem de fala. As referências a valores e tempos foram ajustadas ao projeto atual: 100.000 elementos no intervalo de 0 a 100.000, com tempo medido durante a execução em vez de valores antigos.
 
-O arquivo `informacoes.js` contém os textos dessa janela e deve ser enviado junto com os demais arquivos para o GitHub Pages.
+Os textos da janela agora estão incorporados ao próprio `app.js`, sem depender de um arquivo adicional de informações. Atualize o `index.html` e o `app.js` juntos no repositório.
 
 ### Identidade visual
 
@@ -50,11 +50,17 @@ A página usa os dois arquivos de logo oficiais fornecidos, sem alterar suas pro
 - `logo_univassouras_branca.png`: cabeçalho sobre bordô.
 - `logo_univassouras_colorida.png`: rodapé sobre fundo claro.
 
-A paleta segue o manual reduzido da Univassouras: bordô `#6D1D20` e cinza quente `#A59C97`. O CSS indica **Museo Sans**, fonte institucional, como primeira opção. Como os arquivos da fonte não foram fornecidos, o navegador usa uma alternativa sans-serif caso a família não esteja instalada.
+A paleta segue o manual reduzido da Univassouras: bordô `#6D1D20` e cinza quente `#A59C97`. A tipografia da interface foi ajustada para **Georgia/Cambria**, de aparência serifada, conforme preferência posterior. Essa escolha difere da Museo Sans indicada no manual da marca; as logos e cores institucionais continuam preservadas.
 
 **Envie as duas imagens junto com os arquivos HTML, CSS e JavaScript para o mesmo diretório no GitHub.** Não renomeie os arquivos sem ajustar os caminhos no `index.html`.
 
 Se quiser executar o Python dentro do GitHub, use **Code → Codespaces → Create codespace on main**, abra o terminal e rode `python menu.py`.
+
+### Tempo de execução em Python
+
+O arquivo `menu.py` também cronometra cada algoritmo com `time.perf_counter()`. Após selecionar um método, ele mostra **o nome, a confirmação da ordenação e o tempo em segundos**; quando ultrapassa 60 segundos, mostra também minutos e segundos. A medição considera apenas a chamada de ordenação sobre uma cópia da lista.
+
+Os arquivos individuais (`bubble_sort.py`, `quick_sort.py` e os demais) mantêm apenas as funções para que possam ser importados sem iniciar automaticamente um teste com 100.000 elementos. Para medir um deles, execute o `menu.py` e selecione seu número. O resultado do navegador mede JavaScript, enquanto o do terminal mede Python; os tempos não são diretamente comparáveis.
 
 ## Observações
 
@@ -76,4 +82,5 @@ Se tiver Node.js instalado, a versão web também pode ser conferida com:
 
 ```bash
 node testes/testar_web.js
+node testes/testar_janela.js
 ```
