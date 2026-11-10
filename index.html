@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17253a">
+  <title>Algoritmos de Ordenação</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="pagina">
+    <header class="cabecalho">
+      <p class="marca">ATIVIDADE DE PROGRAMAÇÃO</p>
+      <h1>Algoritmos de ordenação</h1>
+      <p>Selecione um dos nove métodos, execute o teste e confira o tempo e o resultado.</p>
+    </header>
+
+    <div class="grade">
+      <section class="painel" aria-labelledby="configuracao">
+        <h2 id="configuracao">Configuração</h2>
+        <label for="algoritmo">Algoritmo</label>
+        <select id="algoritmo">
+          <option value="0">01 · Bubble Sort</option>
+          <option value="1">02 · Insertion Sort</option>
+          <option value="2">03 · Selection Sort</option>
+          <option value="3">04 · Merge Sort</option>
+          <option value="4">05 · Quick Sort</option>
+          <option value="5">06 · Heap Sort</option>
+          <option value="6">07 · Counting Sort</option>
+          <option value="7">08 · Radix Sort</option>
+          <option value="8">09 · Bucket Sort</option>
+        </select>
+
+        <label for="quantidade">Quantidade de elementos</label>
+        <input id="quantidade" type="number" min="1" max="100000" step="1" value="100000" required>
+        <p class="ajuda">Padrão da atividade: <strong>100.000 números aleatórios</strong> de 0 a 1.000.000, com sequência fixa para cada teste.</p>
+
+        <p class="alerta" id="alerta">Atenção: esse método pode levar muito tempo com 100.000 elementos.</p>
+
+        <div class="acoes">
+          <button id="executar" type="button">Executar algoritmo</button>
+          <button id="parar" class="secundario" type="button" disabled>Interromper</button>
+        </div>
+
+        <a id="arquivo" class="link" href="bubble_sort.py" target="_blank" rel="noopener">Abrir código Python selecionado</a>
+      </section>
+
+      <section class="painel resultado" aria-labelledby="titulo-resultado">
+        <div class="linha-titulo"><h2 id="titulo-resultado">Resultado</h2><span class="situacao" id="situacao">Aguardando</span></div>
+        <p class="descricao" id="descricao">Escolha um algoritmo e clique em executar.</p>
+        <div class="numeros">
+          <div><span>Tempo de execução</span><strong id="tempo">—</strong></div>
+          <div><span>Elementos analisados</span><strong id="total">—</strong></div>
+        </div>
+        <div class="amostra">
+          <p>Primeiros 10 números</p>
+          <code id="primeiros">—</code>
+          <p>Últimos 10 números</p>
+          <code id="ultimos">—</code>
+        </div>
+        <p class="nota">A ordenação acontece no navegador. Para executar os arquivos Python originais, utilize o <code>menu.py</code> no terminal ou no Codespaces.</p>
+      </section>
+    </div>
+    <footer>Projeto de algoritmos de ordenação · Python + versão web</footer>
+  </main>
+</body>
+</html>
