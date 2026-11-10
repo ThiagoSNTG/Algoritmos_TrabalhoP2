@@ -39,6 +39,10 @@ Para publicar:
 
 O botão **Abrir código Python selecionado** permite consultar o arquivo de cada algoritmo.
 
+O botão **Informações do algoritmo** abre uma janela de consulta para o método selecionado. O conteúdo segue os tópicos do roteiro acadêmico (execução passo a passo, complexidade, código, teste, vantagens, desvantagens e conclusão), sem nomes de participantes nem frases de passagem de fala. As referências a valores e tempos foram ajustadas ao projeto atual: 100.000 elementos no intervalo de 0 a 100.000, com tempo medido durante a execução em vez de valores antigos.
+
+O arquivo `informacoes.js` contém os textos dessa janela e deve ser enviado junto com os demais arquivos para o GitHub Pages.
+
 ### Identidade visual
 
 A página usa os dois arquivos de logo oficiais fornecidos, sem alterar suas proporções:

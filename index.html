@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#6d1d20">
   <title>Algoritmos de Ordenação | Univassouras</title>
   <link rel="stylesheet" href="estilos.css">
+  <script src="informacoes.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -56,6 +57,7 @@
           <button id="parar" class="secundario" type="button" disabled>Interromper</button>
         </div>
 
+        <button id="abrir-informacoes" class="botao-informacoes" type="button">Informações do algoritmo</button>
         <a id="arquivo" class="link" href="bubble_sort.py" target="_blank" rel="noopener">Abrir código Python selecionado</a>
       </section>
 
@@ -84,5 +86,16 @@
       </div>
     </footer>
   </main>
+
+  <dialog id="janela-informacoes" class="janela-informacoes" aria-labelledby="titulo-informacoes">
+    <div class="topo-informacoes">
+      <div>
+        <p>GUIA DO ALGORITMO</p>
+        <h2 id="titulo-informacoes"></h2>
+      </div>
+      <button id="fechar-informacoes" class="fechar-informacoes" type="button" aria-label="Fechar informações">Fechar</button>
+    </div>
+    <div id="conteudo-informacoes" class="conteudo-informacoes"></div>
+  </dialog>
 </body>
 </html>

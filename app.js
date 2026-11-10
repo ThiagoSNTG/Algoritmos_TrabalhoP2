@@ -89,3 +89,72 @@ parar.addEventListener("click", interromper);
 seletor.addEventListener("change", atualizarAlgoritmo);
 quantidade.addEventListener("input", atualizarAlgoritmo);
 atualizarAlgoritmo();
+
+const janelaInformacoes = document.getElementById("janela-informacoes");
+const conteudoInformacoes = document.getElementById("conteudo-informacoes");
+
+function criarSecaoInformacoes(titulo, conteudo, numerada = false) {
+  const secao = document.createElement("section");
+  secao.className = "secao-informacoes";
+  const cabecalho = document.createElement("h3");
+  cabecalho.textContent = titulo;
+  secao.appendChild(cabecalho);
+
+  if (Array.isArray(conteudo)) {
+    const lista = document.createElement(numerada ? "ol" : "ul");
+    for (const item of conteudo) {
+      const linha = document.createElement("li");
+      linha.textContent = item;
+      lista.appendChild(linha);
+    }
+    secao.appendChild(lista);
+  } else {
+    const texto = document.createElement("p");
+    texto.textContent = conteudo;
+    secao.appendChild(texto);
+  }
+  return secao;
+}
+
+function abrirInformacoes() {
+  const dados = informacoesAlgoritmos[Number(seletor.value)];
+  document.getElementById("titulo-informacoes").textContent = dados.nome;
+  conteudoInformacoes.replaceChildren();
+
+  conteudoInformacoes.appendChild(criarSecaoInformacoes("Código na mão", dados.exemplo, true));
+
+  const secaoComplexidade = criarSecaoInformacoes("Complexidade", dados.complexidade.nota);
+  const grade = document.createElement("div");
+  grade.className = "complexidade-grade";
+  for (const [rotulo, valor] of [
+    ["Melhor caso", dados.complexidade.melhor],
+    ["Caso médio", dados.complexidade.media],
+    ["Pior caso", dados.complexidade.pior],
+    ["Memória extra", dados.complexidade.memoria]
+  ]) {
+    const caixa = document.createElement("div");
+    const etiqueta = document.createElement("span");
+    const numero = document.createElement("strong");
+    etiqueta.textContent = rotulo;
+    numero.textContent = valor;
+    caixa.append(etiqueta, numero);
+    grade.appendChild(caixa);
+  }
+  secaoComplexidade.insertBefore(grade, secaoComplexidade.querySelector("p"));
+  conteudoInformacoes.appendChild(secaoComplexidade);
+
+  conteudoInformacoes.appendChild(criarSecaoInformacoes("Código (geral)", dados.codigo));
+  conteudoInformacoes.appendChild(criarSecaoInformacoes(
+    "Teste de execução",
+    "A atividade utiliza 100.000 números inteiros de 0 a 100.000, com sequência fixa. " +
+    "A medição considera apenas a ordenação; o tempo real aparece no painel Resultado. " + dados.teste
+  ));
+  conteudoInformacoes.appendChild(criarSecaoInformacoes("Vantagens", dados.vantagens));
+  conteudoInformacoes.appendChild(criarSecaoInformacoes("Desvantagens", dados.desvantagens));
+  conteudoInformacoes.appendChild(criarSecaoInformacoes("Comparação e conclusão", dados.conclusao));
+
+  janelaInformacoes.showModal();
+}
+
+document.getElementById("abrir-informacoes").addEventListener("click", abrirInformacoes);
+document.getElementById("fechar-informacoes").addEventListener("click", () => janelaInformacoes.close());
