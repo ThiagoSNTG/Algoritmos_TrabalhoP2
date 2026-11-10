@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def quick_sort(lista):
@@ -11,3 +12,11 @@ def quick_sort(lista):
     maiores = [numero for numero in lista if numero > pivo]
 
     return quick_sort(menores) + iguais + quick_sort(maiores)
+
+
+def testar(lista):
+    inicio = time.perf_counter()
+    resultado = quick_sort(lista.copy())
+    tempo = time.perf_counter() - inicio
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    return resultado, tempo

@@ -1,3 +1,6 @@
+import time
+
+
 def bucket_sort(lista, qtd_baldes=1000):
     if not lista:
         return lista
@@ -26,3 +29,11 @@ def bucket_sort(lista, qtd_baldes=1000):
         resultado.extend(balde)
 
     return resultado
+
+
+def testar(lista):
+    inicio = time.perf_counter()
+    resultado = bucket_sort(lista.copy())
+    tempo = time.perf_counter() - inicio
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    return resultado, tempo

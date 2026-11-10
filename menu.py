@@ -1,27 +1,26 @@
 import random
-import time
 
-from bubble_sort import bubble_sort
-from bucket import bucket_sort
-from counting_sort import counting_sort
-from heap_sort import heap_sort
-from insertion_sort import insertion_sort
-from merge_sort import merge_sort
-from quick_sort import quick_sort
-from radix_sort import radix_sort
-from selection_sort import selection_sort
+from bubble_sort import testar as testar_bubble
+from bucket import testar as testar_bucket
+from counting_sort import testar as testar_counting
+from heap_sort import testar as testar_heap
+from insertion_sort import testar as testar_insertion
+from merge_sort import testar as testar_merge
+from quick_sort import testar as testar_quick
+from radix_sort import testar as testar_radix
+from selection_sort import testar as testar_selection
 
 
 algoritmos = [
-    ("Bubble Sort", bubble_sort),
-    ("Insertion Sort", insertion_sort),
-    ("Selection Sort", selection_sort),
-    ("Merge Sort", merge_sort),
-    ("Quick Sort", quick_sort),
-    ("Heap Sort", heap_sort),
-    ("Counting Sort", counting_sort),
-    ("Radix Sort", radix_sort),
-    ("Bucket Sort", bucket_sort),
+    ("Bubble Sort", testar_bubble),
+    ("Insertion Sort", testar_insertion),
+    ("Selection Sort", testar_selection),
+    ("Merge Sort", testar_merge),
+    ("Quick Sort", testar_quick),
+    ("Heap Sort", testar_heap),
+    ("Counting Sort", testar_counting),
+    ("Radix Sort", testar_radix),
+    ("Bucket Sort", testar_bucket),
 ]
 
 
@@ -44,7 +43,7 @@ while True:
         continue
     quantidade = int(texto) if texto else 100000
 
-    nome, ordenar = algoritmos[int(escolha) - 1]
+    nome, testar = algoritmos[int(escolha) - 1]
     if int(escolha) <= 3 and quantidade >= 100000:
         print("Atenção: esse algoritmo pode demorar bastante com 100 mil elementos.")
         if input("Continuar? (s/n): ").strip().lower() != "s":
@@ -55,20 +54,17 @@ while True:
     lista = random.sample(range(100_001), quantidade)
 
     print(f"\nExecutando {nome} com {quantidade} elementos...")
-    inicio = time.perf_counter()
     try:
-        resultado = ordenar(lista.copy())
+        resultado, tempo = testar(lista)
     except KeyboardInterrupt:
         print("\nExecução interrompida.")
         continue
-    tempo = time.perf_counter() - inicio
 
     correto = resultado == sorted(lista)
     print("\nRESULTADO DA EXECUÇÃO EM PYTHON")
     print(f"Algoritmo: {nome}")
     print(f"Valores repetidos na entrada: {quantidade - len(set(lista))}")
     print(f"Ordenação correta: {'Sim' if correto else 'Não'}")
-    print(f"Tempo de execução: {tempo:.4f} segundos")
     if tempo >= 60:
         minutos, segundos = divmod(tempo, 60)
         print(f"Duração: {int(minutos)} min e {segundos:.2f} s")

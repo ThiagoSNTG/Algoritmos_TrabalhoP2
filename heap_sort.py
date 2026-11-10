@@ -1,3 +1,6 @@
+import time
+
+
 def ajeitar(lista, tamanho, posicao):
     maior = posicao
     esquerda = 2 * posicao + 1
@@ -24,3 +27,11 @@ def heap_sort(lista):
         ajeitar(lista, fim, 0)
 
     return lista
+
+
+def testar(lista):
+    inicio = time.perf_counter()
+    resultado = heap_sort(lista.copy())
+    tempo = time.perf_counter() - inicio
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    return resultado, tempo

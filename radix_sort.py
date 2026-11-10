@@ -1,3 +1,6 @@
+import time
+
+
 def ordenar_positivos(lista):
     if not lista:
         return lista
@@ -33,3 +36,11 @@ def radix_sort(lista):
     negativos = ordenar_positivos(negativos)
     positivos = ordenar_positivos(positivos)
     return [-numero for numero in reversed(negativos)] + positivos
+
+
+def testar(lista):
+    inicio = time.perf_counter()
+    resultado = radix_sort(lista.copy())
+    tempo = time.perf_counter() - inicio
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    return resultado, tempo

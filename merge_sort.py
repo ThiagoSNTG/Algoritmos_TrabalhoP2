@@ -1,3 +1,6 @@
+import time
+
+
 def merge_sort(lista):
     if len(lista) <= 1:
         return lista
@@ -21,3 +24,11 @@ def merge_sort(lista):
     resultado.extend(esquerda[i:])
     resultado.extend(direita[j:])
     return resultado
+
+
+def testar(lista):
+    inicio = time.perf_counter()
+    resultado = merge_sort(lista.copy())
+    tempo = time.perf_counter() - inicio
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    return resultado, tempo

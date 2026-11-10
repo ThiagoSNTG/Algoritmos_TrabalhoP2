@@ -1,3 +1,6 @@
+import time
+
+
 def bubble_sort(lista):
     for i in range(len(lista) - 1):
         trocou = False
@@ -8,3 +11,11 @@ def bubble_sort(lista):
         if not trocou:
             break
     return lista
+
+
+def testar(lista):
+    inicio = time.perf_counter()
+    resultado = bubble_sort(lista.copy())
+    tempo = time.perf_counter() - inicio
+    print(f"Tempo de execução: {tempo:.4f} segundos")
+    return resultado, tempo
