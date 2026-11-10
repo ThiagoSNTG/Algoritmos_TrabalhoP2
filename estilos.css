@@ -67,7 +67,7 @@ button:disabled { opacity: .46; cursor: default; }
 .situacao.sucesso { background: #e6f3e9; color: #267243; }
 .situacao.falha { background: #ffeded; color: #9c3030; }
 .descricao { color: var(--texto-suave); font-size: 14px; line-height: 1.6; min-height: 47px; margin-top: 23px; }
-.numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; }
+.numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin: 25px 0; }
 .numeros > div { background: #f7f4f2; border: 1px solid #eee8e5; border-radius: 6px; padding: 16px; }
 .numeros span { display: block; color: var(--texto-suave); font-size: 12px; margin-bottom: 8px; }
 .numeros strong { color: var(--bordo); font-size: clamp(18px, 2.4vw, 25px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }

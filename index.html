@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#6d1d20">
   <title>Algoritmos de Ordenação | Univassouras</title>
-  <link rel="stylesheet" href="estilos.css?v=4">
-  <script src="app.js?v=4" defer></script>
+  <link rel="stylesheet" href="estilos.css?v=6">
+  <script src="app.js?v=6" defer></script>
 </head>
 <body>
   <div class="faixa-institucional">
@@ -21,7 +21,7 @@
     <header class="cabecalho">
       <p class="marca"><span class="marcador"></span> LABORATÓRIO DE ORDENAÇÃO</p>
       <h1>Algoritmos de <span>ordenação</span></h1>
-      <p>Explore os nove métodos, execute cada algoritmo e acompanhe o tempo e a conferência dos resultados.</p>
+      <p>Explore os nove métodos, execute cada algoritmo e acompanhe o tempo e a conferência dos resultados, usando números sem repetição.</p>
       <div class="dados-atividade" aria-label="Parâmetros da atividade">
         <span><strong>09</strong> métodos</span>
         <span><strong>100.000</strong> elementos</span>
@@ -47,7 +47,7 @@
 
         <label for="quantidade">Quantidade de elementos</label>
         <input id="quantidade" type="number" min="1" max="100000" step="1" value="100000" required>
-        <p class="ajuda">Padrão da atividade: <strong>100.000 números aleatórios</strong> de 0 a 100.000, com sequência fixa para cada teste.</p>
+        <p class="ajuda">Padrão da atividade: <strong>100.000 números aleatórios distintos</strong> de 0 a 100.000, sem repetição e com sequência fixa para cada teste.</p>
 
         <p class="alerta" id="alerta">Atenção: esse método pode levar muito tempo com 100.000 elementos.</p>
 
@@ -66,6 +66,7 @@
         <div class="numeros">
           <div><span>Tempo de execução</span><strong id="tempo">—</strong></div>
           <div><span>Elementos analisados</span><strong id="total">—</strong></div>
+          <div><span>Valores repetidos</span><strong id="repetidos">—</strong></div>
         </div>
         <div class="amostra">
           <p>Primeiros 10 números</p>
@@ -80,8 +81,7 @@
       <img class="logo-institucional logo-colorida" src="logo_univassouras_colorida.png"
            alt="Univassouras" width="741" height="522">
       <div>
-        <strong>Algoritmos de ordenação</strong>
-        <p>Atividade acadêmica · Python e versão web</p>
+        <strong>Trabalho da P2 de Algoritmos - Turma 2B</strong>
       </div>
     </footer>
   </main>

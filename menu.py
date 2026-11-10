@@ -39,8 +39,8 @@ while True:
         continue
 
     texto = input("Quantidade de elementos [100000]: ").strip()
-    if texto and (not texto.isdigit() or int(texto) < 1):
-        print("Digite uma quantidade positiva.")
+    if texto and (not texto.isdigit() or not 1 <= int(texto) <= 100000):
+        print("Digite uma quantidade de 1 a 100000.")
         continue
     quantidade = int(texto) if texto else 100000
 
@@ -52,7 +52,7 @@ while True:
 
     # A mesma semente deixa a comparação entre algoritmos mais justa.
     random.seed(42)
-    lista = [random.randint(0, 100_000) for _ in range(quantidade)]
+    lista = random.sample(range(100_001), quantidade)
 
     print(f"\nExecutando {nome} com {quantidade} elementos...")
     inicio = time.perf_counter()
@@ -66,6 +66,7 @@ while True:
     correto = resultado == sorted(lista)
     print("\nRESULTADO DA EXECUÇÃO EM PYTHON")
     print(f"Algoritmo: {nome}")
+    print(f"Valores repetidos na entrada: {quantidade - len(set(lista))}")
     print(f"Ordenação correta: {'Sim' if correto else 'Não'}")
     print(f"Tempo de execução: {tempo:.4f} segundos")
     if tempo >= 60:

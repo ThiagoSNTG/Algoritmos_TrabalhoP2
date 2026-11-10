@@ -22,11 +22,11 @@ Para executar no computador ou no terminal do GitHub Codespaces, abra a pasta e 
 python menu.py
 ```
 
-Selecione um número de 1 a 9. Pressione Enter quando for perguntada a quantidade para usar os **100.000 elementos** da atividade. O programa gera números de 0 a 100.000 com semente aleatória fixa, mede o tempo e confere o resultado.
+Selecione um número de 1 a 9. Pressione Enter quando for perguntada a quantidade para usar os **100.000 elementos** da atividade. O programa sorteia **100.000 números distintos**, de 0 a 100.000, com `random.sample(range(100_001), quantidade)` e semente fixa (`random.seed(42)`). Mede o tempo e confere o resultado. O sorteio é sem reposição: cada número aparece no máximo uma vez.
 
 ## Versão para GitHub Pages
 
-O GitHub Pages não executa Python diretamente. Por isso, `index.html` traz o menu visual e `algoritmos.js` contém versões equivalentes em JavaScript. O teste roda no navegador sem servidor, com 100.000 elementos por padrão. Os tempos no site e no Python podem ser diferentes porque são ambientes e linguagens distintos.
+O GitHub Pages não executa Python diretamente. Por isso, `index.html` traz o menu visual e `algoritmos.js` contém versões equivalentes em JavaScript. O teste roda no navegador sem servidor, com 100.000 elementos distintos por padrão. A geração utiliza um embaralhamento com semente fixa e sorteio sem reposição. Os tempos no site e no Python podem ser diferentes porque são ambientes e linguagens distintos.
 
 Para publicar:
 
@@ -39,7 +39,7 @@ Para publicar:
 
 O botão **Abrir código Python selecionado** permite consultar o arquivo de cada algoritmo.
 
-O botão **Informações do algoritmo** abre uma janela de consulta para o método selecionado. O conteúdo segue os tópicos do roteiro acadêmico (execução passo a passo, complexidade, código, teste, vantagens, desvantagens e conclusão), sem nomes de participantes nem frases de passagem de fala. As referências a valores e tempos foram ajustadas ao projeto atual: 100.000 elementos no intervalo de 0 a 100.000, com tempo medido durante a execução em vez de valores antigos.
+O botão **Informações do algoritmo** abre uma janela de consulta para o método selecionado. O conteúdo segue os tópicos do roteiro acadêmico (execução passo a passo, complexidade, código, teste, vantagens, desvantagens e conclusão), sem nomes de participantes nem frases de passagem de fala. Na seção "Código na mão", os passos se referem à lista completa de 100.000 elementos, sem demonstrações com listas reduzidas. Os valores não se repetem e o tempo é medido durante a execução, sem usar tempos antigos do roteiro.
 
 Os textos da janela agora estão incorporados ao próprio `app.js`, sem depender de um arquivo adicional de informações. Atualize o `index.html` e o `app.js` juntos no repositório.
 
@@ -54,6 +54,8 @@ A paleta segue o manual reduzido da Univassouras: bordô `#6D1D20` e cinza quent
 
 **Envie as duas imagens junto com os arquivos HTML, CSS e JavaScript para o mesmo diretório no GitHub.** Não renomeie os arquivos sem ajustar os caminhos no `index.html`.
 
+Para aplicar a mudança de números sem repetição no GitHub Pages, substitua **`index.html`, `app.js` e `worker.js`** ao mesmo tempo. Para a versão Python, substitua também **`menu.py`**. Recarregue o site com Ctrl + F5 após a publicação.
+
 Se quiser executar o Python dentro do GitHub, use **Code → Codespaces → Create codespace on main**, abra o terminal e rode `python menu.py`.
 
 ### Tempo de execução em Python
@@ -64,7 +66,8 @@ Os arquivos individuais (`bubble_sort.py`, `quick_sort.py` e os demais) mantêm 
 
 ## Observações
 
-- O tamanho padrão de 100.000 elementos foi preservado nos dois menus.
+- O tamanho padrão de 100.000 elementos foi preservado nos dois menus, sem valores repetidos.
+- O intervalo inclusivo de 0 a 100.000 contém 100.001 números possíveis; sorteamos 100.000 deles, portanto um valor fica de fora de cada entrada completa.
 - Bubble, Insertion e Selection podem demorar muito com esse tamanho por realizarem aproximadamente uma quantidade quadrática de comparações. No menu web, você pode clicar em **Interromper**.
 - O navegador utiliza uma sequência fixa para comparar os nove algoritmos entre si; o Python também usa uma sequência fixa, mas o gerador de números das duas linguagens não é idêntico. Portanto, compare tempos de execução dentro do **mesmo ambiente**.
 - Foram retirados textos extensos e blocos de teste repetidos de cada arquivo. Os arquivos `.py` podem ser importados sem executar testes automaticamente.

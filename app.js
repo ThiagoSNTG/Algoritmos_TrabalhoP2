@@ -3,10 +3,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Bubble Sort",
     exemplo: [
-      "Lista inicial: [5, 2, 9, 1, 3].",
-      "Na primeira passada, compara os vizinhos e troca os que estão invertidos: [2, 5, 1, 3, 9]. O 9 chega ao final.",
-      "Na segunda passada: [2, 1, 3, 5, 9]. Na terceira: [1, 2, 3, 5, 9].",
-      "Na passada seguinte não ocorre nenhuma troca. O algoritmo reconhece que a lista está ordenada e termina."
+      "A entrada é a lista completa de 100.000 números distintos, armazenados nas posições 0 a 99.999.",
+      "Na primeira passada, o laço interno compara 99.999 pares de vizinhos e troca os que estiverem invertidos. O maior valor chega à última posição.",
+      "A próxima passada não precisa verificar a última posição, pois ela já está correta. O mesmo processo continua com a parte ainda não ordenada.",
+      "Quando uma passada termina sem nenhuma troca, a variável trocou permanece falsa e o algoritmo encerra a ordenação."
     ],
     complexidade: {melhor: "O(n)", media: "O(n²)", pior: "O(n²)", memoria: "O(1)", nota: "Os dois laços percorrem pares de vizinhos. Em listas aleatórias, há muitas comparações e trocas. A variável trocou permite encerrar após uma única passada quando a lista já está ordenada."},
     codigo: [
@@ -22,10 +22,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Insertion Sort",
     exemplo: [
-      "Lista inicial: [5, 2, 9, 1, 3]. A parte ordenada começa com [5].",
-      "Insere o 2 antes do 5: [2, 5]. O 9 já está na posição correta: [2, 5, 9].",
-      "Para inserir o 1, desloca 9, 5 e 2: [1, 2, 5, 9].",
-      "Por fim, abre espaço para o 3 entre 2 e 5: [1, 2, 3, 5, 9]."
+      "A entrada tem 100.000 valores distintos. Inicialmente, apenas o elemento da posição 0 é considerado ordenado.",
+      "A partir da posição 1, cada número é guardado temporariamente na variável valor.",
+      "O algoritmo percorre a parte anterior, deslocando para a direita todos os elementos maiores que valor.",
+      "Insere valor no espaço encontrado e repete até a posição 99.999, quando toda a lista está em ordem."
     ],
     complexidade: {melhor: "O(n)", media: "O(n²)", pior: "O(n²)", memoria: "O(1)", nota: "O for seleciona o próximo elemento e o while desloca os maiores para a direita. Uma lista já ordenada quase não exige deslocamentos; uma lista invertida exige o máximo."},
     codigo: [
@@ -41,10 +41,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Selection Sort",
     exemplo: [
-      "Lista inicial: [5, 2, 9, 1, 3].",
-      "Procura o menor valor, 1, e troca com o primeiro: [1, 2, 9, 5, 3].",
-      "O menor da parte restante é 2, que já está no lugar.",
-      "Encontra 3 e troca com 9: [1, 2, 3, 5, 9]. A parte ordenada cresce da esquerda para a direita."
+      "A lista contém 100.000 valores distintos em posições de 0 a 99.999.",
+      "Na posição 0, percorre toda a lista para localizar o menor número e colocá-lo no início.",
+      "Na posição 1, procura o menor entre as 99.999 posições restantes e o coloca no lugar correto.",
+      "A busca se repete para cada nova posição. A região ordenada cresce da esquerda para a direita até abranger a lista inteira."
     ],
     complexidade: {melhor: "O(n²)", media: "O(n²)", pior: "O(n²)", memoria: "O(1)", nota: "O laço externo escolhe cada posição e o interno procura o menor valor restante. São aproximadamente n(n - 1)/2 comparações, mesmo que a lista já esteja ordenada. As trocas são poucas: no máximo uma por posição."},
     codigo: [
@@ -60,10 +60,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Merge Sort",
     exemplo: [
-      "Lista inicial: [5, 2, 9, 1].",
-      "Divide em [5, 2] e [9, 1], depois em [5], [2], [9] e [1].",
-      "Intercala cada par em ordem: [2, 5] e [1, 9].",
-      "Intercala as duas metades ordenadas e obtém [1, 2, 5, 9]."
+      "Começa com os 100.000 números distintos e divide a lista em duas metades de 50.000 elementos.",
+      "Continua dividindo cada metade até chegar a sublistas com um único elemento. Essas divisões fazem parte da ordenação dos 100.000 dados, não de um teste reduzido.",
+      "Na etapa de intercalação, compara os próximos elementos de cada metade e copia o menor para o resultado.",
+      "Repete as junções até formar novamente uma lista única, agora com os 100.000 números em ordem crescente."
     ],
     complexidade: {melhor: "O(n log n)", media: "O(n log n)", pior: "O(n log n)", memoria: "O(n)", nota: "A divisão pela metade cria cerca de log₂(n) níveis. Em cada nível, a intercalação percorre os elementos. O custo de tempo é previsível, mas são criadas listas auxiliares."},
     codigo: [
@@ -79,10 +79,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Quick Sort",
     exemplo: [
-      "Lista inicial: [5, 2, 9, 1, 3]. Considere o pivô 3 neste exemplo.",
-      "Separa os números em menores [2, 1], iguais [3] e maiores [5, 9].",
-      "Ordena recursivamente as partes menores e maiores: [1, 2] e [5, 9].",
-      "Junta tudo: [1, 2, 3, 5, 9]. O pivô sorteado pode alterar as etapas intermediárias."
+      "Na lista de 100.000 números distintos, seleciona aleatoriamente um dos valores como pivô.",
+      "Percorre toda a entrada e separa os valores menores e maiores que o pivô. Como não há repetição, a lista de iguais contém somente o pivô escolhido.",
+      "Aplica a mesma divisão recursivamente às partes menores e maiores, até que não seja necessário subdividir mais.",
+      "Junta todas as partes ordenadas. A escolha do pivô pode mudar as divisões, mas o resultado permanece crescente."
     ],
     complexidade: {melhor: "O(n log n)", media: "O(n log n)", pior: "O(n²)", memoria: "O(n) usual", nota: "Uma divisão equilibrada gera poucos níveis de recursão. Se o pivô produzir divisões muito desequilibradas repetidamente, o custo pode chegar a O(n²). Nesta versão, são criadas três listas em cada divisão."},
     codigo: [
@@ -98,10 +98,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Heap Sort",
     exemplo: [
-      "Lista inicial: [5, 2, 9, 1, 3].",
-      "Constrói um heap máximo, em que cada pai é maior ou igual aos filhos: [9, 3, 5, 1, 2].",
-      "Troca o maior elemento com o último e reorganiza os restantes: [5, 3, 2, 1, 9].",
-      "Repete a retirada do maior até chegar a [1, 2, 3, 5, 9]."
+      "Os 100.000 valores distintos são reorganizados como um heap máximo, no qual cada pai é maior que seus filhos.",
+      "O maior número fica na raiz, na posição 0. Ele é trocado com o elemento da posição 99.999, que fica definitivamente ordenado.",
+      "O heap passa a considerar 99.999 elementos. A raiz é ajustada e o maior valor restante vai para o fim da região ativa.",
+      "O processo continua, diminuindo o tamanho do heap até todos os 100.000 valores estarem ordenados."
     ],
     complexidade: {melhor: "O(n log n)", media: "O(n log n)", pior: "O(n log n)", memoria: "O(log n)*", nota: "Construir o heap custa O(n). Cada retirada do maior exige um ajuste de até log n níveis. *A estrutura ordena na própria lista, mas a função ajeitar é recursiva e usa pilha de chamadas."},
     codigo: [
@@ -117,10 +117,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Counting Sort",
     exemplo: [
-      "Lista inicial: [3, 1, 2, 1, 3].",
-      "Cria uma contagem para os valores de 0 a 3: [0, 0, 0, 0].",
-      "Após percorrer os elementos, as frequências ficam [0, 2, 1, 2].",
-      "Reconstrói a lista em ordem crescente: [1, 1, 2, 3, 3]. Não precisa comparar pares de valores."
+      "A entrada contém 100.000 números únicos, escolhidos entre os 100.001 valores possíveis de 0 a 100.000.",
+      "O algoritmo identifica o menor e o maior valor e cria as posições de contagem necessárias para cobrir esse intervalo.",
+      "Cada número encontrado incrementa sua frequência. Como não há valores repetidos, cada posição de contagem vale 0 ou 1.",
+      "Percorre a contagem em ordem crescente e escreve apenas os valores presentes, reconstruindo os 100.000 números sem comparar pares."
     ],
     complexidade: {melhor: "O(n + k)", media: "O(n + k)", pior: "O(n + k)", memoria: "O(k)", nota: "n é a quantidade de elementos e k é a amplitude de valores possíveis. Nesta atividade, com valores de 0 a 100.000, a contagem pode ocupar até 100.001 posições."},
     codigo: [
@@ -136,10 +136,10 @@ const informacoesAlgoritmos = [
   {
     nome: "Radix Sort",
     exemplo: [
-      "Lista inicial: [170, 45, 75, 90, 802, 24, 2, 66].",
-      "Ordena pelas unidades: [170, 90, 802, 2, 24, 45, 75, 66].",
-      "Depois pelas dezenas: [802, 2, 24, 45, 66, 170, 75, 90].",
-      "Por fim, pelas centenas: [2, 24, 45, 66, 75, 90, 170, 802]. Cada etapa preserva a ordem dos empates da etapa anterior."
+      "A entrada tem 100.000 inteiros distintos, cada um entre 0 e 100.000.",
+      "Primeiro, percorre todos os elementos para ordená-los de maneira estável pelo dígito das unidades.",
+      "Repete a ordenação pelas dezenas, centenas, milhares e demais casas decimais existentes.",
+      "Como o limite é 100.000, são necessárias no máximo seis passadas por dígito para ordenar toda a lista."
     ],
     complexidade: {melhor: "O(d(n + b))", media: "O(d(n + b))", pior: "O(d(n + b))", memoria: "O(n + b)", nota: "d é a quantidade de dígitos e b é a base usada, aqui 10. De 0 a 100.000, o maior valor possui até 6 dígitos, portanto são no máximo 6 passadas por casa decimal."},
     codigo: [
@@ -155,16 +155,16 @@ const informacoesAlgoritmos = [
   {
     nome: "Bucket Sort",
     exemplo: [
-      "Lista didática: [29, 25, 3, 49, 9, 37, 21, 43], usando faixas de dez em dez.",
-      "Distribui: 0–9 → [3, 9]; 20–29 → [29, 25, 21]; 30–39 → [37]; 40–49 → [49, 43].",
-      "Ordena os valores dentro de cada balde: [3, 9], [21, 25, 29], [37] e [43, 49].",
-      "Junta os baldes na ordem das faixas: [3, 9, 21, 25, 29, 37, 43, 49]."
+      "Os 100.000 números distintos são distribuídos entre 1.000 baldes, conforme suas posições no intervalo de valores.",
+      "Cada número é colocado no balde calculado pela fórmula do código; com valores bem espalhados, os baldes tendem a receber quantidades próximas de elementos.",
+      "O Insertion Sort organiza os números dentro de cada balde, sem alterar o conjunto total de 100.000 entradas.",
+      "Os baldes são percorridos na ordem e seus valores são reunidos em uma única lista crescente."
     ],
     complexidade: {melhor: "O(n + k) usual", media: "O(n + k) usual", pior: "O(n²)", memoria: "O(n + k)", nota: "k é o número de baldes. Quando os valores estão bem distribuídos, cada balde fica pequeno. Se quase todos caírem no mesmo balde, o Insertion Sort interno pode dominar o custo."},
     codigo: [
       "Encontra o menor e o maior valor e cria 1.000 baldes vazios por padrão.",
       "Calcula o índice de cada balde de acordo com a posição relativa do número no intervalo de dados.",
-      "Ordena cada balde usando a lógica do Insertion Sort e concatena todos os baldes. O exemplo didático usa faixas de dez, mas o código ajusta as faixas ao intervalo encontrado."
+      "Ordena cada balde usando a lógica do Insertion Sort e concatena todos os baldes. As faixas são ajustadas ao intervalo real dos 100.000 dados."
     ],
     teste: "Com 100.000 números aleatórios bem distribuídos, tende a ser rápido. Se os números estiverem concentrados em poucos baldes, o tempo pode aumentar consideravelmente.",
     vantagens: ["Divide o problema em grupos menores.", "Tem bom desempenho quando os dados estão bem distribuídos.", "Permite usar um algoritmo simples dentro de cada balde."],
@@ -223,7 +223,7 @@ executar.addEventListener("click", () => {
   }
 
   const indice = Number(seletor.value);
-  trabalhador = new Worker("worker.js");
+  trabalhador = new Worker("worker.js?v=6");
   executar.disabled = true;
   parar.disabled = false;
   seletor.disabled = true;
@@ -232,6 +232,7 @@ executar.addEventListener("click", () => {
   descricao.textContent = "Ordenando os números em segundo plano. Algoritmos quadráticos podem levar vários minutos ou mais.";
   document.getElementById("tempo").textContent = "—";
   document.getElementById("total").textContent = total.toLocaleString("pt-BR");
+  document.getElementById("repetidos").textContent = "—";
   document.getElementById("primeiros").textContent = "—";
   document.getElementById("ultimos").textContent = "—";
 
@@ -247,6 +248,7 @@ executar.addEventListener("click", () => {
     mostrarSituacao(dados.correto ? "Ordenação correta" : "Ordenação incorreta", dados.correto ? "sucesso" : "falha");
     descricao.textContent = `${seletor.options[seletor.selectedIndex].textContent} finalizado.`;
     document.getElementById("tempo").textContent = `${dados.tempo.toFixed(4)} s`;
+    document.getElementById("repetidos").textContent = String(dados.repetidos);
     document.getElementById("primeiros").textContent = dados.primeiros.join(", ");
     document.getElementById("ultimos").textContent = dados.ultimos.join(", ");
   };
@@ -300,7 +302,7 @@ function abrirInformacoes() {
   document.getElementById("titulo-informacoes").textContent = dados.nome;
   conteudoInformacoes.replaceChildren();
 
-  conteudoInformacoes.appendChild(criarSecaoInformacoes("Código na mão", dados.exemplo, true));
+  conteudoInformacoes.appendChild(criarSecaoInformacoes("Código na mão: 100.000 elementos", dados.exemplo, true));
 
   const secaoComplexidade = criarSecaoInformacoes("Complexidade", dados.complexidade.nota);
   const grade = document.createElement("div");
@@ -325,8 +327,9 @@ function abrirInformacoes() {
   conteudoInformacoes.appendChild(criarSecaoInformacoes("Código (geral)", dados.codigo));
   conteudoInformacoes.appendChild(criarSecaoInformacoes(
     "Teste de execução",
-    "A atividade utiliza 100.000 números inteiros de 0 a 100.000, com sequência fixa. " +
-    "A medição considera apenas a ordenação; o tempo real aparece no painel Resultado. " + dados.teste
+    "A atividade utiliza 100.000 números inteiros distintos de 0 a 100.000, com sequência fixa. " +
+    "A medição considera apenas a ordenação; o tempo real aparece no painel Resultado. " +
+    "Como não há repetições, a estabilidade de cada método é uma propriedade teórica, não observável nesta amostra. " + dados.teste
   ));
   conteudoInformacoes.appendChild(criarSecaoInformacoes("Vantagens", dados.vantagens));
   conteudoInformacoes.appendChild(criarSecaoInformacoes("Desvantagens", dados.desvantagens));

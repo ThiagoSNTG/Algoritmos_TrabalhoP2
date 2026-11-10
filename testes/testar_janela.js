@@ -54,6 +54,10 @@ for (let indice = 0; indice < 9; indice++) {
   assert.equal(elementos["janela-informacoes"].open, true);
   assert.equal(elementos["titulo-informacoes"].textContent, nomes[indice]);
   assert.equal(elementos["conteudo-informacoes"].children.length, 7);
+  const passos = elementos["conteudo-informacoes"].children[0].children[1].children;
+  const explicacao = passos.map(passo => passo.textContent).join(" ");
+  assert.match(explicacao, /100\.000/);
+  assert.doesNotMatch(explicacao, /\[\s*\d+\s*,/);
   elementos["fechar-informacoes"].listeners.click();
   assert.equal(elementos["janela-informacoes"].open, false);
 }
